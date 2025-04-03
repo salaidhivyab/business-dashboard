@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages | GROOT Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Messages specific styles */
+        .messages-container {
+            display: grid;
+            grid-template-columns: 350px auto;
+            gap: 1.5rem;
+            height: calc(100vh - 180px);
+        }
+
+        .conversations-list {
+            background: var(--color-white);
+            border-radius: var(--card-border-radius);
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .conversation {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border-radius: var(--border-radius-1);
+            margin-bottom: 0.7rem;
+            cursor: pointer;
+            transition: all 300ms ease;
+        }
+
+        .conversation:hover,
+        .conversation.active {
+            background: var(--color-light);
+        }
+
+        .conversation-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .conversation-info h3 {
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+
+        .conversation-info p {
+            color: var(--color-info-dark);
+            font-size: 0.9rem;
+        }
+
+        .conversation-time {
+            margin-left: auto;
+            font-size: 0.8rem;
+            color: var(--color-info-dark);
+        }
+
+        .message-area {
+            display: flex;
+            flex-direction: column;
+            background: var(--color-white);
+            border-radius: var(--card-border-radius);
+            overflow: hidden;
+        }
+
+        .message-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--color-light);
+        }
+
+        .message-content {
+            flex: 1;
+            padding: 1.5rem;
+            overflow-y: auto;
+            background: rgba(132, 129, 200, 0.03);
+        }
+
+        .message {
+            margin-bottom: 1.5rem;
+            max-width: 70%;
+        }
+
+        .received {
+            align-self: flex-start;
+            background: var(--color-white);
+            padding: 1rem;
+            border-radius: 0 var(--card-border-radius) var(--card-border-radius) var(--card-border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .sent {
+            align-self: flex-end;
+            background: var(--color-primary);
+            padding: 1rem;
+            border-radius: var(--card-border-radius) 0 var(--card-border-radius) var(--card-border-radius);
+            color: black;
+        }
+
+        .message-input {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid var(--color-light);
+            background: var(--color-white);
+        }
+
+        .message-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--color-light);
+            border-radius: var(--border-radius-1);
+            margin-right: 1rem;
+        }
+
+        .message-input button {
+            padding: 0.8rem 1.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .messages-container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+
+            .conversations-list {
+                height: 300px;
+            }
+
+            .message-area {
+                height: 500px;
+            }
+        }
+
+        .sent p, .sent small{
+            color: var(--color-white);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="logo2.png" alt="logo">
+                    <h2><span class="danger">G</span>ROOT</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <a href="index.html">
+                    <span class="material-symbols-sharp">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="customers.html">
+                    <span class="material-symbols-sharp">person</span>
+                    <h3>Customers</h3>
+                </a>
+                <a href="orders.html">
+                    <span class="material-symbols-sharp">receipt</span>
+                    <h3>Orders</h3>
+                </a>
+                <a href="products.html">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Products</h3>
+                </a>
+                <a href="analytics.html">
+                    <span class="material-symbols-sharp">analytics</span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="messages.html" class="active">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Messages</h3>
+                    <span class="message-count" style="color: azure;">2</span>
+                </a>
+                <a href="welcome.html" id="logout">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Messages</h1>
+            <div class="messages-container">
+                <!-- Conversations List -->
+                <div class="conversations-list">
+                    <div class="conversation active">
+                        <div class="conversation-avatar">
+                            <img src="profile.webp" alt="Rajesh Kumar">
+                        </div>
+                        <div class="conversation-info">
+                            <h3>Ram</h3>
+                            <p>Thanks for the quick delivery!</p>
+                        </div>
+                        <div class="conversation-time">2:30 PM</div>
+                    </div>
+
+                    <div class="conversation">
+                        <div class="conversation-avatar">
+                            <img src="profile.webp" alt="Green Valley Farms">
+                        </div>
+                        <div class="conversation-info">
+                            <h3>Green Valley Farms</h3>
+                            <p>Can we get a bulk discount?</p>
+                        </div>
+                        <div class="conversation-time">Yesterday</div>
+                    </div>
+
+                    <!-- More conversations... -->
+                </div>
+
+                <!-- Message Area -->
+                <div class="message-area">
+                    <div class="message-header">
+                        <h2>Ram</h2>
+                        <p class="text-muted">Customer since 2022</p>
+                    </div>
+
+                    <div class="message-content">
+                        <div class="message received">
+                            <p>Hello, I received my order but there's a missing item</p>
+                            <small>10:30 AM</small>
+                        </div>
+
+                        <div class="message sent">
+                            <p>We apologize for the inconvenience. Could you please tell us which item is missing?</p>
+                            <small>10:35 AM</small>
+                        </div>
+
+                        <div class="message received">
+                            <p>The 5kg vermicompost bag was missing from my order #73492</p>
+                            <small>10:40 AM</small>
+                        </div>
+
+                        <div class="message sent">
+                            <p>Thank you for letting us know. We'll dispatch the missing item today with priority
+                                delivery.</p>
+                            <small>10:42 AM</small>
+                        </div>
+
+                        <div class="message received">
+                            <p>Thanks for the quick response!</p>
+                            <small>2:30 PM</small>
+                        </div>
+                    </div>
+
+                    <div class="message-input">
+                        <input type="text" placeholder="Type your message...">
+                        <button class="primary">
+                            <span class="material-symbols-sharp">send</span> Send
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-symbols-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-symbols-sharp active">light_mode</span>
+                    <span class="material-symbols-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey <b>Admin</b></p>
+                        <small class="text-muted">Support</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="profile.webp" alt="Profile">
+                    </div>
+                </div>
+            </div>
+
+            <div class="quick-actions">
+                <h2>Quick Actions</h2>
+                <button class="secondary">
+                    <span class="material-symbols-sharp">note_stack</span> New Ticket
+                </button>
+                <button class="secondary">
+                    <span class="material-symbols-sharp">search</span> Search Messages
+                </button>
+                <button class="secondary">
+                    <span class="material-symbols-sharp">filter_alt</span> Filter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="messages.js"></script>
+</body>
+
+</html>

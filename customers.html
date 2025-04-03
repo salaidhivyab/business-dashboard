@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers | GROOT Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="logo2.png" alt="logo">
+                    <h2><span class="danger">G</span>ROOT</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <a href="index.html">
+                    <span class="material-symbols-sharp">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="customers.html" class="active">
+                    <span class="material-symbols-sharp">person</span>
+                    <h3>Customers</h3>
+                </a>
+                <a href="orders.html">
+                    <span class="material-symbols-sharp">receipt</span>
+                    <h3>Orders</h3>
+                </a>
+                <a href="products.html">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Products</h3>
+                </a>
+                <a href="analytics.html">
+                    <span class="material-symbols-sharp">analytics</span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="messages.html">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Messages</h3>
+                    <span class="message-count">2</span>
+                </a>
+                <a href="welcome.html" id="logout">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Customers</h1>
+            <div class="customer-actions">
+                <button class="primary" id="add-customer-btn">
+                    <span class="material-symbols-sharp">add</span> Add New Customer
+                </button>
+                <div class="search-bar">
+                    <span class="material-symbols-sharp">search</span>
+                    <input type="text" placeholder="Search customers..." id="customer-search">
+                </div>
+            </div>
+
+            <div class="recent-order">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Customer ID</th>
+                            <th>Name</th>
+                            <th>Business</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Orders</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customers-list">
+                        <tr>
+                            <td>#CUST-1001</td>
+                            <td>Henry</td>
+                            <td>Green Valley Farms</td>
+                            <td>henry@greenvalley.com</td>
+                            <td>+91 9876543210</td>
+                            <td>24</td>
+                            <td class="success">Active</td>
+                            <td>
+                                <span class="material-symbols-sharp edit-btn">edit</span>
+                                <span class="material-symbols-sharp delete-btn">delete</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#CUST-1002</td>
+                            <td>Priya</td>
+                            <td>Urban Gardeners Co-op</td>
+                            <td>priya@urbangarden.com</td>
+                            <td>+91 8765432109</td>
+                            <td>18</td>
+                            <td class="success">Active</td>
+                            <td>
+                                <span class="material-symbols-sharp edit-btn">edit</span>
+                                <span class="material-symbols-sharp delete-btn">delete</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="pagination">
+                <button id="prev-page">Previous</button>
+                <span class="active">1</span>
+                <span>2</span>
+                <span>3</span>
+                <button id="next-page">Next</button>
+            </div>
+        </main>
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-symbols-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-symbols-sharp active">light_mode</span>
+                    <span class="material-symbols-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey <b>Admin</b></p>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="profile.webp" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="customer-modal">
+        <div class="modal-content">
+            <h2 style="display: inline; margin-right: 52%;">Add New Customer</h2>
+            <span class="close-modal" style="display: inline;">&times;</span>
+            <form id="customer-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="business">Business</label>
+                    <input type="text" id="business">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone</label>
+                    <input type="number" id="phone">
+                </div>
+                <button type="submit" class="primary">Save Customer</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

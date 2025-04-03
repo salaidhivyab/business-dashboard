@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics | GROOT Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="logo2.png" alt="logo">
+                    <h2><span class="danger">G</span>ROOT</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <a href="index.html">
+                    <span class="material-symbols-sharp">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="customers.html">
+                    <span class="material-symbols-sharp">person</span>
+                    <h3>Customers</h3>
+                </a>
+                <a href="orders.html">
+                    <span class="material-symbols-sharp">receipt</span>
+                    <h3>Orders</h3>
+                </a>
+                <a href="products.html">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Products</h3>
+                </a>
+                <a href="analytics.html" class="active">
+                    <span class="material-symbols-sharp">analytics</span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="messages.html">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Messages</h3>
+                    <span class="message-count">2</span>
+                </a>
+                <a href="welcome.html" id="logout">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+        <main>
+            <h1>Analytics Dashboard</h1>
+            
+            <div class="analytics-container">
+                <!-- Sales Chart -->
+                <div class="chart-card">
+                    <h2>Sales Performance</h2>
+                    <div class="chart" id="sales-chart">
+                        <!-- Chart will be rendered here with JavaScript -->
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Product Performance -->
+                <div class="chart-card">
+                    <h2>Top Products</h2>
+                    <div class="chart" id="products-chart">
+                        <canvas id="productsChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Customer Analytics -->
+                <div class="chart-card">
+                    <h2>Customer Demographics</h2>
+                    <div class="chart" id="customers-chart">
+                        <canvas id="customersChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Revenue Trends -->
+                <div class="chart-card">
+                    <h2>Revenue Trends</h2>
+                    <div class="chart" id="revenue-chart">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-symbols-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-symbols-sharp active">light_mode</span>
+                    <span class="material-symbols-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey <b>Admin</b></p>
+                        <small class="text-muted">Analyst</small>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="profile.webp" alt="Profile">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="analytics-summary">
+                <h2>Key Metrics</h2>
+                <div class="metric">
+                    <span class="material-symbols-sharp">trending_up</span>
+                    <div>
+                        <h3>Monthly Growth</h3>
+                        <p class="success">+12.5%</p>
+                    </div>
+                </div>
+                <div class="metric">
+                    <span class="material-symbols-sharp">sell</span>
+                    <div>
+                        <h3>Conversion Rate</h3>
+                        <p>3.2%</p>
+                    </div>
+                </div>
+                <div class="metric">
+                    <span class="material-symbols-sharp">repeat</span>
+                    <div>
+                        <h3>Repeat Customers</h3>
+                        <p class="success">42%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js" defer></script>
+    <script src="analytics.js" defer></script>
+</body>
+</html>

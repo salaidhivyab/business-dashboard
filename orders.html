@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | GROOT Admin</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="logo2.png" alt="logo">
+                    <h2><span class="danger">G</span>ROOT</h2>
+                </div>
+                <div class="close" id="close-btn">
+                    <span class="material-symbols-sharp">close</span>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <a href="index.html">
+                    <span class="material-symbols-sharp">dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="customers.html">
+                    <span class="material-symbols-sharp">person</span>
+                    <h3>Customers</h3>
+                </a>
+                <a href="orders.html" class="active">
+                    <span class="material-symbols-sharp">receipt</span>
+                    <h3>Orders</h3>
+                </a>
+                <a href="products.html">
+                    <span class="material-symbols-sharp">inventory</span>
+                    <h3>Products</h3>
+                </a>
+                <a href="analytics.html">
+                    <span class="material-symbols-sharp">analytics</span>
+                    <h3>Analytics</h3>
+                </a>
+                <a href="messages.html">
+                    <span class="material-symbols-sharp">forum</span>
+                    <h3>Messages</h3>
+                    <span class="message-count">2</span>
+                </a>
+                <a href="welcome.html" id="logout">
+                    <span class="material-symbols-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+        <main>
+            <h1>Order Management</h1>
+            <div class="order-filters">
+                <div class="filter-group">
+                    <label>Status:</label>
+                    <select>
+                        <option>All Orders</option>
+                        <option>Pending</option>
+                        <option>Processing</option>
+                        <option>Shipped</option>
+                        <option>Delivered</option>
+                        <option>Cancelled</option>
+                    </select>
+                </div>
+            </div>
+        
+            <div class="recent-order">
+                <table >
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Products</th>
+                            <th>Date</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#GROOT-7852</td>
+                            <td>Green Valley Farms</td>
+                            <td>3 items</td>
+                            <td>15 May 2023</td>
+                            <td>$875</td>
+                            <td>
+                                <span class="status-badge success">Delivered</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#GROOT-7849</td>
+                            <td>Agro Solutions Ltd</td>
+                            <td>5 items</td>
+                            <td>14 May 2023</td>
+                            <td>$1,245</td>
+                            <td>
+                                <span class="status-badge warning">Processing</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-symbols-sharp">menu</span>
+                </button>
+                <div class="theme-toggler">
+                    <span class="material-symbols-sharp active">light_mode</span>
+                    <span class="material-symbols-sharp">dark_mode</span>
+                </div>
+                <div class="profile">
+                    <div class="info">
+                        <p>Hey <b>Admin</b></p>
+                    </div>
+                    <div class="profile-photo">
+                        <img src="profile.webp" alt="Profile">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="app.js"></script>
+</body>
+</html>
